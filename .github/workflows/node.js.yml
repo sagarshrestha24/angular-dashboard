@@ -19,7 +19,7 @@ jobs:
           
     - name: test
       run: |
-       git clone https://sagarshrestha24:${{ secrets.GITHUB_TOKEN }}@github.com/sagarshrestha24/cortex-promethes-script.git
+       git clone https://github.com/sagarshrestha24/myproject.git
       
     
     
