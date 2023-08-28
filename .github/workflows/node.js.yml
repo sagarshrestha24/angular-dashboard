@@ -17,7 +17,7 @@ jobs:
           repository: sagarshrestha24/cortex-promethes-script.git
           ref: 'main'
           token: ${{ secrets.GITHUB_TOKEN }}
-          path: ./cortex-promethes-script
+          
     - name: test
       run: |
        ls -al
