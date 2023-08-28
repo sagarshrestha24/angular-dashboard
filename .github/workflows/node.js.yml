@@ -10,41 +10,19 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [10.x]
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+    - name: Check out my other private repo
+      uses: actions/checkout@main
       with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install and test
+          repository: sagarshrestha24/cortex-promethes-script
+          token: ${{ secrets.GITHUB_TOKEN }}
+    - name: test
       run: |
-        npm install
-        npm run build 
-        ng serve
+       ls -al
+      
+    
+    
         
   
-  deploynodeapp:
-    needs: [testangularapplication]
-    runs-on: ubuntu-latest
 
-    steps:
-    - name: SSH and deploy node app
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        port: ${{ secrets.SSH_PORT }}
-        script: |
-          mkdir -p ~/angular/
-          cd ~/angular/
-          git clone https://github.com/sagarshrestha24/angular-dashboard.git
-          cd angular-dashboard
-          docker-compose down
-          docker-compose build
-          docker-compose up -d 
          
