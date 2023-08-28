@@ -6,13 +6,15 @@ on:
       - master
 
 jobs:
+  
   testangularapplication:
-
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
 
     steps:
     - name: Check out my other private repo
-      uses: actions/checkout@v3
+      uses: aactions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
       with:
           repository: sagarshrestha24/cortex-promethes-script.git
           ref: 'main'
