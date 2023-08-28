@@ -23,7 +23,7 @@ jobs:
       with:
        owner: 'sagarshrestha24'
        repository: 'cortex-promethes-script'
-       access-token: ${{ secrets.GITHUB_TOKEN }}
+       access-token: ${{ secrets.GH_TOKENS }}
           
     - name: test
       run: |
