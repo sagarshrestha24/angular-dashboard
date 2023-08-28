@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/labeler@v4
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Clone mbm-infra repo
       uses: GuillaumeFalourd/clone-github-repo-action@v2.1
       with:
