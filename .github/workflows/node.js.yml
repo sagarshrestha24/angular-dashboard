@@ -14,7 +14,7 @@ jobs:
     - name: Check out my other private repo
       uses: actions/checkout@v3
       with:
-          repository: sagarshrestha24/cortex-promethes-script
+          repository: sagarshrestha24/cortex-promethes-script.git
           ref: 'main'
           token: ${{ secrets.GITHUB_TOKEN }}
           path: ./cortex-promethes-script
