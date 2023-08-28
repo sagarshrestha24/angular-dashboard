@@ -14,12 +14,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out my other private repo
-      uses: actions/checkout@master
+    - name: Clone mbm-infra repo
+      uses: GuillaumeFalourd/clone-github-repo-action@v2.1
+      with:
+       owner: 'sagarshrestha24'
+       repository: 'cortex-promethes-script'
+       access-token: ${{ secrets.GITHUB_TOKEN }}
           
     - name: test
       run: |
-       git clone https://${{ secrets.GITHUB_TOKEN }}@github.com/sagarshrestha24/cortex-promethes-script.git
+       ls
       
     
     
