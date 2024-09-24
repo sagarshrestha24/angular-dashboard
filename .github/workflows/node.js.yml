@@ -6,7 +6,6 @@ on:
   push:
     branches:
       - master
-
 jobs:
   build-1:
     runs-on: test-runner
