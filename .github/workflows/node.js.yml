@@ -1,4 +1,6 @@
-name: Angular Dashboard
+# .github/workflows/ci.yml
+
+name: CI Workflow
 
 on:
   push:
@@ -6,33 +8,18 @@ on:
       - master
 
 jobs:
-  
-  testangularapplication:
-    permissions:
-      contents: read
-      packages: write
-    runs-on: ubuntu-latest
-
+  build:
+    runs-on: self-hosted
+    
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/labeler@v4
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Clone mbm-infra repo
-      uses: GuillaumeFalourd/clone-github-repo-action@v2.1
-      with:
-       owner: 'sagarshrestha24'
-       repository: 'cortex-promethes-script'
-       access-token: ${{ secrets.GH_TOKENS }}
-          
-    - name: test
-      run: |
-       cd cortex-promethes-script 
-       ls -al
-      
-    
-    
-        
-  
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-         
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
